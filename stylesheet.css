@@ -7,22 +7,32 @@ html, body, h1, h2, h3, h4, p, div {
 	font-family: "VT323", "Courier New", "Lucida Sans Typewriter", monospace;
     color: #FFFFFF;
 }
+body {
+	background-color: #000000;
+}
 a {
     text-decoration: none;
     color: #AEFB33;
 }
-a:hover, a:active {
-    /* font-style: italic; */
+a:focus, a:hover, a:active {
 	cursor: crosshair;
 }
-body {
-	background-color: #000000;
-}
+
+/* MOON  */
+
 .moon {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.moon-pixelart {
+    position: relative;
+    left: -215px;
+    z-index: -1;
+}
+
+/* CONTENT */
+
 .header {
     display: flex;
     align-items: center;
@@ -30,20 +40,82 @@ body {
     margin: 450px 0 0 0;
 }
 .header h1 {
-    font-size: 6vw;
+    font-size: 50px;
     font-family: "Silkscreen", "VT323", "Courier New", "Lucida Sans Typewriter", monospace;
 }
+@media all and (max-width: 850px) and (-webkit-min-device-pixel-ratio: 1) {
+    .header h1 {
+        font-size: 6vw;
+    }
+}
+@media all and (max-width: 425px) and (-webkit-min-device-pixel-ratio: 1) {
+    .header h1 {
+        font-size: 25px;
+    }
+}
+
 .main {
     margin: 10% 5%;
     font-size: 30px;
 }
+
 .footer {
     margin: 5%;
-    font-size: 20px;
+}
+.footer p{
+    font-family: "Silkscreen", "VT323", "Courier New", "Lucida Sans Typewriter", monospace;
+    font-size: 20px
 }
 
-.moon-pixelart {
-    position: relative;
-    left: -215px;
-    z-index: -1;
+/* MARQUEE */
+
+.marquee-wrapper {
+    width: 100%;
+    padding-left: 100%;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+.marquee {
+    display: inline-block; 
+    padding-right: 100%;
+    white-space: nowrap;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite; 
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: 13s;
+    animation-duration: 13s;
+}
+.marquee-item {
+    display: inline-block;
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
